@@ -18,7 +18,7 @@ void uart_terminal_init()
 		.stopbits	=	UART_TERMINAL_SERIAL_STOP_BIT
 	};
 	
-	PORTD.DIR |= UART_TERMINAL_TX_PIN;	//set the USART transmit pin to output
+	UART_TERMINAL_PORT.DIR |= UART_TERMINAL_TX_PIN;	//set the USART transmit pin to output
 	
 	stdio_serial_init(UART_TERMINAL_SERIAL, &usart_config); //function maps the serial output to printf, not nessecary to know how it works
 	

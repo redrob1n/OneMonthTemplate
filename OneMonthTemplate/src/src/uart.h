@@ -17,6 +17,7 @@
 #define UART_TERMINAL_SERIAL_STOP_BIT	true
 
 #define UART_TERMINAL_TX_PIN			PIN3_bm
+#define UART_TERMINAL_PORT				PORTE
 
 void uart_terminal_init(void);
 
