@@ -22,16 +22,3 @@ ISR(TCE0_OVF_vect)
 {
 	PORTQ.OUT ^= 0x08;	//toggle LED0 on the xplained board
 }
-
-
-
-
-void timer_counter_change_period(uint16_t period)
-{
-	TCE0.PER = period;
-}
-
-
-ISR_ALIAS(TCC0_OVF_vect, TCE0_OVF_vect);
-ISR_ALIAS(TCF0_OVF_vect, TCE0_OVF_vect);
-ISR_ALIAS(TCD0_OVF_vect, TCE0_OVF_vect);

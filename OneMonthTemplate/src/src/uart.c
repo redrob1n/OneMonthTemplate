@@ -22,5 +22,4 @@ void uart_terminal_init()
 	
 	stdio_serial_init(UART_TERMINAL_SERIAL, &usart_config); //function maps the serial output to printf, not nessecary to know how it works
 	
-	delay_us(1); //apparently need to slow down before print @32MHz
 }

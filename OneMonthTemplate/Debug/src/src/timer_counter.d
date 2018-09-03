@@ -46,8 +46,13 @@ src/src/timer_counter.d src/src/timer_counter.o: \
  ../src/ASF/common/services/ioport/xmega/ioport_compat.h \
  ../src/ASF/common/services/ioport/xmega/../ioport.h \
  ../src/ASF/xmega/drivers/nvm/nvm.h ../src/ASF/xmega/drivers/pmic/pmic.h \
- ../src/ASF/xmega/drivers/usart/usart.h \
+ ../src/ASF/common/utils/stdio/stdio_serial/stdio_serial.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
+ ../src/ASF/common/services/serial/serial.h \
  ../src/ASF/xmega/utils/status_codes.h \
+ ../src/ASF/common/services/serial/xmega_usart/usart_serial.h \
+ ../src/ASF/xmega/drivers/usart/usart.h ../src/config/conf_usart_serial.h \
  ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h \
  ../src/include/timer_counter.h
 
@@ -153,9 +158,21 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../src/ASF/xmega/drivers/pmic/pmic.h:
 
-../src/ASF/xmega/drivers/usart/usart.h:
+../src/ASF/common/utils/stdio/stdio_serial/stdio_serial.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
+
+../src/ASF/common/services/serial/serial.h:
 
 ../src/ASF/xmega/utils/status_codes.h:
+
+../src/ASF/common/services/serial/xmega_usart/usart_serial.h:
+
+../src/ASF/xmega/drivers/usart/usart.h:
+
+../src/config/conf_usart_serial.h:
 
 ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h:
 

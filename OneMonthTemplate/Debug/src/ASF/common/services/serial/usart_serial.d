@@ -1,5 +1,10 @@
-src/main.d src/main.o: ../src/main.c ../src/asf.h \
- ../src/ASF/xmega/drivers/cpu/ccp.h ../src/ASF/xmega/utils/compiler.h \
+src/ASF/common/services/serial/usart_serial.d \
+ src/ASF/common/services/serial/usart_serial.o: \
+ ../src/ASF/common/services/serial/usart_serial.c \
+ ../src/ASF/common/services/serial/serial.h \
+ ../src/ASF/common/utils/parts.h ../src/ASF/xmega/utils/status_codes.h \
+ ../src/ASF/common/services/serial/xmega_usart/usart_serial.h \
+ ../src/ASF/xmega/utils/compiler.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -16,7 +21,6 @@ src/main.d src/main.o: ../src/main.c ../src/asf.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
- ../src/ASF/common/utils/parts.h \
  ../src/ASF/xmega/utils/bit_handling/clz_ctz.h \
  ../src/ASF/xmega/utils/preprocessor/preprocessor.h \
  ../src/ASF/xmega/utils/preprocessor/tpaste.h \
@@ -28,36 +32,25 @@ src/main.d src/main.o: ../src/main.c ../src/asf.h \
  ../src/ASF/common/utils/interrupt.h \
  ../src/ASF/common/utils/interrupt/interrupt_avr8.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- ../src/ASF/xmega/drivers/cpu/xmega_reset_cause.h \
- ../src/ASF/xmega/drivers/cpu/ccp.h \
- ../src/ASF/common/services/delay/delay.h \
  ../src/ASF/common/services/clock/sysclk.h ../src/config/conf_clock.h \
  ../src/ASF/common/services/clock/xmega/sysclk.h \
  ../src/ASF/common/boards/board.h \
  ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h \
- ../src/config/conf_board.h ../src/ASF/common/services/clock/osc.h \
+ ../src/config/conf_board.h ../src/ASF/xmega/drivers/cpu/ccp.h \
+ ../src/ASF/common/services/clock/osc.h \
  ../src/ASF/common/services/clock/xmega/osc.h \
  ../src/ASF/common/services/clock/pll.h \
  ../src/ASF/common/services/clock/xmega/pll.h \
- ../src/ASF/common/services/delay/xmega/cycle_counter.h \
- ../src/ASF/common/services/ioport/ioport.h \
- ../src/ASF/common/services/ioport/xmega/ioport.h \
- ../src/ASF/common/services/ioport/xmega/ioport_compat.h \
- ../src/ASF/common/services/ioport/xmega/../ioport.h \
- ../src/ASF/xmega/drivers/nvm/nvm.h ../src/ASF/xmega/drivers/pmic/pmic.h \
- ../src/ASF/common/utils/stdio/stdio_serial/stdio_serial.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- ../src/ASF/common/services/serial/serial.h \
- ../src/ASF/xmega/utils/status_codes.h \
- ../src/ASF/common/services/serial/xmega_usart/usart_serial.h \
- ../src/ASF/xmega/drivers/usart/usart.h ../src/config/conf_usart_serial.h \
- ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h \
- ../src/include/timer_counter.h ../src/include/uart.h
+ ../src/ASF/xmega/drivers/usart/usart.h \
+ ../src/ASF/xmega/drivers/pmic/pmic.h ../src/config/conf_usart_serial.h
 
-../src/asf.h:
+../src/ASF/common/services/serial/serial.h:
 
-../src/ASF/xmega/drivers/cpu/ccp.h:
+../src/ASF/common/utils/parts.h:
+
+../src/ASF/xmega/utils/status_codes.h:
+
+../src/ASF/common/services/serial/xmega_usart/usart_serial.h:
 
 ../src/ASF/xmega/utils/compiler.h:
 
@@ -93,8 +86,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
 
-../src/ASF/common/utils/parts.h:
-
 ../src/ASF/xmega/utils/bit_handling/clz_ctz.h:
 
 ../src/ASF/xmega/utils/preprocessor/preprocessor.h:
@@ -117,12 +108,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
-../src/ASF/xmega/drivers/cpu/xmega_reset_cause.h:
-
-../src/ASF/xmega/drivers/cpu/ccp.h:
-
-../src/ASF/common/services/delay/delay.h:
-
 ../src/ASF/common/services/clock/sysclk.h:
 
 ../src/config/conf_clock.h:
@@ -135,6 +120,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../src/config/conf_board.h:
 
+../src/ASF/xmega/drivers/cpu/ccp.h:
+
 ../src/ASF/common/services/clock/osc.h:
 
 ../src/ASF/common/services/clock/xmega/osc.h:
@@ -143,38 +130,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../src/ASF/common/services/clock/xmega/pll.h:
 
-../src/ASF/common/services/delay/xmega/cycle_counter.h:
-
-../src/ASF/common/services/ioport/ioport.h:
-
-../src/ASF/common/services/ioport/xmega/ioport.h:
-
-../src/ASF/common/services/ioport/xmega/ioport_compat.h:
-
-../src/ASF/common/services/ioport/xmega/../ioport.h:
-
-../src/ASF/xmega/drivers/nvm/nvm.h:
+../src/ASF/xmega/drivers/usart/usart.h:
 
 ../src/ASF/xmega/drivers/pmic/pmic.h:
 
-../src/ASF/common/utils/stdio/stdio_serial/stdio_serial.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
-
-../src/ASF/common/services/serial/serial.h:
-
-../src/ASF/xmega/utils/status_codes.h:
-
-../src/ASF/common/services/serial/xmega_usart/usart_serial.h:
-
-../src/ASF/xmega/drivers/usart/usart.h:
-
 ../src/config/conf_usart_serial.h:
-
-../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h:
-
-../src/include/timer_counter.h:
-
-../src/include/uart.h:

@@ -3,7 +3,9 @@
 */
 #include <asf.h>
 #include "include/timer_counter.h"
+#include "include/uart.h"
 
+void TCE0_init(uint16_t period);
 void initialize_interrupt(void);
 
 int main (void)
@@ -24,21 +26,22 @@ int main (void)
 // 	sei();
 // 	
 // 	PORTQ.DIR = 0x08; // sets the LED on PORTQ pin 3 to output	
-
-	//rest of main() above
-
-	PORTQ.DIR = 0x08; //Set PORTQ pin 3 direction to output
-	PORTQ.OUT = 0x08; // Set PORTQ pin 3 output to 1 i.e. LED is off
-	
-	initialize_interrupt(); //function call for initialize_interrupt()
+	uart_terminal_init();
+	printf("hello\n");
+	printf("world\n");
+// 	PORTQ.DIR = 0x08; //Set PORTQ pin 3 direction to output
+// 	PORTQ.OUT = 0x08; // Set PORTQ pin 3 output to 1 i.e. LED is off
+// 	
+// 	initialize_interrupt(); //function call for initialize_interrupt()
 	
 	/* infinite loop */
 	for(;;)
 	{
-		PORTQ.OUT = 0x00; //turn PQ3 LED on
-		delay_ms(2000);
-		PORTQ.OUT |= 0x08; //turn PQ3 LED off
-		delay_ms(2000);
+		//printf("Hello world\n");
+// 		PORTQ.OUT = 0x00; //turn PQ3 LED on
+// 		delay_ms(2000);
+// 		PORTQ.OUT |= 0x08; //turn PQ3 LED off
+// 		delay_ms(2000);
 	}
 	
 	//never go here pls
@@ -81,16 +84,4 @@ void TCE0_init(uint16_t period)
 }
 
 
-uint8_t spi_read(void)
-{
-	SPIC.DATA = 0xFF; // Make the DATA register something we know
-	while(!(SPIC.STATUS>>7)); // wait for the SPI interrupt flag to let us know the transfer is complete
-	
-	return SPIC.DATA; //return the data from this function
-}
 
-uint8_t spi_write(uint8_t data)
-{
-	SPIC.DATA = data; //write the data we want to send to the data register
-	while(!(SPIC.STATUS>>7)); //wait to ensure the data is sent before we do anything else	
-}
