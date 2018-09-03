@@ -7,7 +7,6 @@
 
 #include "uart.h"
 
-/* Initializes terminal uart on virtual com port */
 void uart_terminal_init()
 {
 	sysclk_enable_peripheral_clock(UART_TERMINAL_SERIAL);	//enable the USART's clock

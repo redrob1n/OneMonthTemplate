@@ -10,7 +10,6 @@
 
 #include <asf.h>
 
-/* Terminal UART Settings */
 #define UART_TERMINAL_SERIAL			&USARTE0
 #define UART_TERMINAL_SERIAL_BAUDRATE	9600
 #define UART_TERMINAL_SERIAL_CHAR_LEN	USART_CHSIZE_8BIT_gc
