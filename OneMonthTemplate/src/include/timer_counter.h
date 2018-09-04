@@ -12,7 +12,5 @@
 
 void timer_counter_init(uint16_t period);
 
-void timer_counter_change_period(uint16_t period);
-
 
 #endif /* TIMER_COUNTER_H_ */

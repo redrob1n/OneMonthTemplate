@@ -10,6 +10,8 @@
 #define SPI_CONTROLLER_H_
 
 
+void spi_init(void);
+
 void spi_write(uint8_t data);
 
 uint8_t spi_read(void);
@@ -17,5 +19,6 @@ uint8_t spi_read(void);
 void spi_deselect(void);
 
 void spi_select(void);
+
 
 #endif /* SPI_CONTROLLER_H_ */
