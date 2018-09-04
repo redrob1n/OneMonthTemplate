@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+src\src\adc.c
+
 src\src\ms5607.c
 
 src\src\spi_controller.c

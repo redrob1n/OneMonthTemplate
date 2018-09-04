@@ -70,6 +70,7 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../src/src/adc.c \
 ../src/src/ms5607.c \
 ../src/src/spi_controller.c \
 ../src/src/uart.c \
@@ -94,6 +95,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+src/src/adc.o \
 src/src/ms5607.o \
 src/src/spi_controller.o \
 src/src/uart.o \
@@ -111,6 +113,7 @@ src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o \
 src/main.o
 
 OBJS_AS_ARGS +=  \
+src/src/adc.o \
 src/src/ms5607.o \
 src/src/spi_controller.o \
 src/src/uart.o \
@@ -128,6 +131,7 @@ src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o \
 src/main.o
 
 C_DEPS +=  \
+src/src/adc.d \
 src/src/ms5607.d \
 src/src/spi_controller.d \
 src/src/uart.d \
@@ -145,6 +149,7 @@ src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.d \
 src/main.d
 
 C_DEPS_AS_ARGS +=  \
+src/src/adc.d \
 src/src/ms5607.d \
 src/src/spi_controller.d \
 src/src/uart.d \
@@ -175,6 +180,13 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+src/src/adc.o: ../src/src/adc.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=XMEGA_A1U_XPLAINED_PRO -DIOPORT_XMEGA_COMPAT  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\XMEGAA_DFP\1.1.68\include" -I"../src/ASF/common/boards" -I"../src/ASF/xmega/utils/preprocessor" -I"../src/ASF/xmega/utils" -I"../src/ASF/common/utils" -I"../src/ASF/common/services/ioport" -I"../src/ASF/xmega/boards/xmega_a1u_xplained_pro" -I"../src/ASF/xmega/boards" -I"../src/config" -I"../src" -I"../src/ASF/xmega/drivers/cpu" -I"../src/ASF/xmega/drivers/nvm" -I"../src/ASF/xmega/drivers/pmic" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/xmega/drivers/usart" -I"../src/ASF/common/services/serial/xmega_usart" -I"../src/ASF/common/services/serial" -I"../src/ASF/common/utils/stdio/stdio_serial"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g3 -Wall -mmcu=atxmega128a1u -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\XMEGAA_DFP\1.1.68\gcc\dev\atxmega128a1u" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 src/src/ms5607.o: ../src/src/ms5607.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0

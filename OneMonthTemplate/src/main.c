@@ -8,44 +8,71 @@
 void TCE0_init(uint16_t period);
 void initialize_interrupt(void);
 
+static void system_initialize(void)
+{
+	
+}
+
+
+
 int main (void)
 {
-	board_init();
-
-	/* Insert application code here, after the board has been initialized. */
-	sysclk_init();
+	sysclk_init(); //enable the system clock, must be done first, clock settings are found in config->conf_clock.h
 	
-	//PORTE.DIR = 0xFF;
-	//PORTE.OUT = 0xFF;
+	system_initialize(); //function in which we will put our initialization code
 	
-	//timer_counter_init(31249);
+	PORTQ.DIR = 0x08;	//PORTQ pin 3 is set to output
+	TCE0.CTRLA = 0x07;	// 0111 is prescaler 1024
 	
-// 	PMIC.CTRL = PMIC_HILVLEN_bm | PMIC_MEDLVLEN_bm | PORT_INT0LVL_LO_gc;
-// 	
-// 	
-// 	sei();
-// 	
-// 	PORTQ.DIR = 0x08; // sets the LED on PORTQ pin 3 to output	
-	uart_terminal_init();
-	printf("hello\n");
-	printf("world\n");
-// 	PORTQ.DIR = 0x08; //Set PORTQ pin 3 direction to output
-// 	PORTQ.OUT = 0x08; // Set PORTQ pin 3 output to 1 i.e. LED is off
-// 	
-// 	initialize_interrupt(); //function call for initialize_interrupt()
-	
-	/* infinite loop */
+	/* Infinite loop */
 	for(;;)
 	{
-		//printf("Hello world\n");
-// 		PORTQ.OUT = 0x00; //turn PQ3 LED on
-// 		delay_ms(2000);
-// 		PORTQ.OUT |= 0x08; //turn PQ3 LED off
-// 		delay_ms(2000);
+		
 	}
 	
-	//never go here pls
+	
 }
+	
+	
+	
+	
+	
+
+// 	
+// 	
+// 	
+// 	
+// 	//PORTE.DIR = 0xFF;
+// 	//PORTE.OUT = 0xFF;
+// 	
+// 	//timer_counter_init(31249);
+// 	
+// // 	PMIC.CTRL = PMIC_HILVLEN_bm | PMIC_MEDLVLEN_bm | PORT_INT0LVL_LO_gc;
+// // 	
+// // 	
+// // 	sei();
+// // 	
+// // 	PORTQ.DIR = 0x08; // sets the LED on PORTQ pin 3 to output	
+// 	uart_terminal_init();
+// 	printf("hello\n");
+// 	printf("world\n");
+// // 	PORTQ.DIR = 0x08; //Set PORTQ pin 3 direction to output
+// // 	PORTQ.OUT = 0x08; // Set PORTQ pin 3 output to 1 i.e. LED is off
+// // 	
+// // 	initialize_interrupt(); //function call for initialize_interrupt()
+// 	
+// 	/* infinite loop */
+// 	for(;;)
+// 	{
+// 		//printf("Hello world\n");
+// // 		PORTQ.OUT = 0x00; //turn PQ3 LED on
+// // 		delay_ms(2000);
+// // 		PORTQ.OUT |= 0x08; //turn PQ3 LED off
+// // 		delay_ms(2000);
+// 	}
+// 	
+// 	//never go here pls
+// }
 
 ISR(PORTA_INT0_vect)
 {
@@ -77,9 +104,9 @@ void TCE0_init(uint16_t period)
 	
 	/* Example using PORTE pin 0 */
 	PORTE.DIR = 0x01;  // set pin 0 to output
-	TCE0.CTRLA = 0x07; // 0110 is prescaler 256
+	TCE0.CTRLA = 0x07; // 0111 is prescaler 1024
 	TCE0.CTRLB = 0x13; // Timer/Counter output A (PORTE pin 0) enabled and single slope pwm
-	TCE0.PER = 12499; // Timer/counter period for 10 Hz
+	TCE0.PER = period; // Timer/counter period for 10 Hz
 	TCE0.CCA = TCE0.PER - (TCE0.PER / 10); // 90% duty cycle is 10% on time for LEDs
 }
 
