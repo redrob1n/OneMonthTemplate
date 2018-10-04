@@ -10,17 +10,19 @@
 
 void spi_init(void)
 {
-	// you should write this	
+	PORTC.DIR |= 0b10110000; //Set port to input.
+	PORTC.DIR &= 0b10111111;
+	SPIC.CTRL = 0b01010000; //Clock Double off, enable SPI, MSB DORD, master mode, SPI transfer mode set to 0, prescalar set to clkper/4 (has no effect in slave mode).
 }
 
 void spi_select(void)
 {
-	// you should write this
+	PORTC.OUT &= 0b11101111;
 }
 
 void spi_deselect(void)
 {
-	// you should write this
+	PORTC.OUT |= 0b00010000;
 }
 
 uint8_t spi_read(void)
